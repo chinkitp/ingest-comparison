@@ -10,9 +10,5 @@ RUN apk update \
 COPY . /
 ADD ./.ssh /root/.ssh
 RUN chmod 400 ~/.ssh/id_rsa \
-    && chmod +x ./ingest-nodes.sh
-
-
-# ENTRYPOINT [ "./ingest-nodes.sh","1"]
-
-# CMD [ "./ansible-playbook digitalocean.yml --ask-vault-pass" ]
+    && chmod +x ./stack-server.sh \
+    && chmod +x ./stack-client.sh
