@@ -9,7 +9,9 @@ services:
     image: ingest-comparison/client-stellar-search:latest
     networks:
       - net
-    entrypoint: sh
+    ports:
+      - "8080:8080"
+    #entrypoint: sh
     tty: true
 
   elasticsearch:
