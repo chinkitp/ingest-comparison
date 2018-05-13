@@ -6,7 +6,6 @@ RUN apk update \
     && apk add py-pip \
     && pip install 'dopy==0.3.7' \
     && apk add --update bash && rm -rf /var/cache/apk/* 
-RUN ansible-galaxy install elastic.elasticsearch
 
 COPY . /
 ADD ./.ssh /root/.ssh
