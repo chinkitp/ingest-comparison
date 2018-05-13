@@ -1,0 +1,17 @@
+
+
+db: Postgres
+  1. Create table Nodes 
+      (
+          Id string, Primary key
+          data JSONB .. // this is a special datatype in Postgres where you can store an entire JSON string in binary
+      )
+  2. Create table Edges 
+      (
+          Id string, Primary key
+          data JSONB .. 
+      )
+loader: nodejs 
+  Create a small nodejs client that will load nodes & edges into the respective tables. 
+    all nodes from ./../sx-stackoverflow-samples/nodes 
+    all edges from ./../sx-stackoverflow-samples/edges

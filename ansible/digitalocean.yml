@@ -80,7 +80,7 @@
     es_templates: false
     ansible_python_interpreter: /usr/bin/python3
     es_version_lock: false
-    es_heap_size: 1g
+    es_heap_size: 24g
     es_api_port: 9200
   roles:
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
