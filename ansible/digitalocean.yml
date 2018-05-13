@@ -10,7 +10,7 @@
           33373738393235353262616632333735613937336135393130343333383263393739616630366233
           64386334353831326464316261373263343737363461303966356231663137656463393735353135
           62313737353133393536
-    masterdroplet:
+    masterdroplet: 
     - droplet-three
     es_major_version: "2.x"
     es_version: "2.2.1"
@@ -35,9 +35,9 @@
       command=droplet
       name={{ item }}
       unique_name=yes
-      size_id=8gb
+      size_id=32gb
       private_networking=yes
-      region_id=sgp1
+      region_id=nyc3
       image_id=ubuntu-16-04-x64
       ssh_key_ids={{ my_ssh_key.ssh_key.id }}
       api_token={{ do_token }}
@@ -81,14 +81,14 @@
     ansible_python_interpreter: /usr/bin/python3
     es_version_lock: false
     es_heap_size: 1g
-    es_api_port: 9201
+    es_api_port: 9200
   roles:
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
     es_config: {
         cluster.name: "custom-cluster",
         discovery.zen.ping.unicast.hosts: "",
         network.host: "0.0.0.0",
-        http.port: 9201,
+        http.port: 9200,
         transport.tcp.port: 9301,
         node.data: true,
         node.master: false,
