@@ -1,0 +1,49 @@
+---
+version: '3.4'
+
+services:
+
+  elastic-engine:
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:6.2.2
+    ports:
+      - "9200:9200"
+    environment:
+      ES_JAVA_OPTS: "-Xmx1g -Xms1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - net
+
+  db:
+    image: postgres:alpine
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: stellar-search
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test:
+        - "CMD-SHELL"
+        - 'pg_isready --username "$${POSTGRES_USER}" --dbname "$${POSTGRES_DB}" || exit 1'
+      interval: 1m
+      timeout: 60s
+      retries: 3
+      start_period: 30s
+    networks:
+      - net
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - "9090:8080"
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
