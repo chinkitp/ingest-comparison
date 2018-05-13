@@ -6,4 +6,4 @@ RUN apt-get install --yes maven
 WORKDIR /stellar-search 
 # the ignoring of the docker is required as we are not going to be running integration tests
 RUN  mvn package -DskipTests=true -Dmaven.javadoc.skip=true -Ddockerfile.skip=true -B -V
-ENTRYPOINT [ "java", "-jar ./search/target/stellar-search-0.1.3-SNAPSHOT-exec.jar --spring.profiles.active=cloud" ]
+ENTRYPOINT [ "java", "-jar", "./search/target/stellar-search-0.1.3-SNAPSHOT-exec.jar","--spring.profiles.active=cloud" ]
