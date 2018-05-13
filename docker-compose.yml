@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  digitalocean:
+    build: 
+      context: ./ansible
+    image: ansible_digitalocean:latest
+    tty: true
