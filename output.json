@@ -1,0 +1,180 @@
+{
+  "name": "docker-s-2vcpu-4gb-nyc3-01",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.131.70.203",
+        "netmask": "255.255.192.0",
+        "gateway": "104.131.64.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.15.17",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "masterdroplet3",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.236.3.89",
+        "netmask": "255.255.192.0",
+        "gateway": "104.236.0.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.117.187",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "masterdroplet2",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.131.36.95",
+        "netmask": "255.255.192.0",
+        "gateway": "104.131.0.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.121.223",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "masterdroplet1",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.236.101.252",
+        "netmask": "255.255.192.0",
+        "gateway": "104.236.64.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.122.55",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "slavedroplet5",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.236.83.211",
+        "netmask": "255.255.192.0",
+        "gateway": "104.236.64.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.122.195",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "slavedroplet4",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.236.14.230",
+        "netmask": "255.255.192.0",
+        "gateway": "104.236.0.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.124.27",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "slavedroplet3",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.131.67.155",
+        "netmask": "255.255.192.0",
+        "gateway": "104.131.64.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.125.164",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "slavedroplet2",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.131.99.249",
+        "netmask": "255.255.192.0",
+        "gateway": "104.131.64.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.42.61",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
+{
+  "name": "slavedroplet1",
+  "networks": {
+    "v4": [
+      {
+        "ip_address": "104.236.35.234",
+        "netmask": "255.255.192.0",
+        "gateway": "104.236.0.1",
+        "type": "public"
+      },
+      {
+        "ip_address": "10.132.125.212",
+        "netmask": "255.255.0.0",
+        "gateway": "10.132.0.1",
+        "type": "private"
+      }
+    ],
+    "v6": []
+  }
+}
