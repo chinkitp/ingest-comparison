@@ -1,0 +1,22 @@
+---
+logging:
+  level:
+    root: INFO
+    au.csiro.data61.stellar: DEBUG
+
+spring:
+
+  datasource:
+    url: jdbc:postgresql://db:5432/stellar-search
+    username: user
+    password: password
+
+security.basic.enabled: false
+
+management:
+  security.enabled: false
+  info.git.mode: full
+
+elasticsearch.rest-client:
+  addresses:
+    - 10.132.106.229:9200
