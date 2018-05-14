@@ -21,15 +21,15 @@ print masters
 print slaves
 
 
-with open('hosts', 'a') as the_file:
+with open('digitaloceanhosts', 'a') as the_file:
     the_file.write('[master]\n')
 for ip in masters:
-    with open('hosts', 'a') as the_file:
+    with open('digitaloceanhosts', 'a') as the_file:
         the_file.write(ip + '\n')
 
 
-with open('hosts', 'a') as the_file:
+with open('digitaloceanhosts', 'a') as the_file:
     the_file.write('[slaves]\n')
 for ip in slaves:
-    with open('hosts', 'a') as the_file:
+    with open('digitaloceanhosts', 'a') as the_file:
         the_file.write(ip + '\n')

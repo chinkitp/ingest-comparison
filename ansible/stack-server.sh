@@ -13,3 +13,7 @@ done
 
 ansible-playbook digitalocean.yml --ask-vault-pass
 
+python generate_hosts.py
+
+
+ansible-playbook elastic-digitalocean.yml -i digitaloceanhosts
