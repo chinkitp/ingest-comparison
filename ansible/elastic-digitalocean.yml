@@ -1,0 +1,56 @@
+- hosts: master
+  remote_user: root
+  pre_tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  vars: 
+    ansible_os_family: "Debian"  
+    ansible_distribution: "2.4.1.0"  
+    es_scripts: false
+    es_templates: false
+    ansible_python_interpreter: /usr/bin/python3
+    es_version_lock: false
+    es_heap_size: 1g
+    es_api_port: 9200
+  roles:
+    - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
+    es_config: {
+        cluster.name: "custom-cluster",
+        discovery.zen.ping.unicast.hosts: "10.132.125.212,10.132.42.61,10.132.125.164,10.132.124.27,10.132.122.195,10.132.122.55,10.132.121.223,10.132.117.187",
+        network.host: "0.0.0.0",
+        http.port: 9200,
+        transport.tcp.port: 9301,
+        node.data: false,
+        node.master: true,
+        bootstrap.memory_lock: true,
+        } 
+    }
+
+
+- hosts: slave
+  remote_user: root
+  pre_tasks:
+    - name: install python 2
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+  vars: 
+    ansible_os_family: "Debian"  
+    ansible_distribution: "2.4.1.0"  
+    es_scripts: false
+    es_templates: false
+    ansible_python_interpreter: /usr/bin/python3
+    es_version_lock: false
+    es_heap_size: 1g
+    es_api_port: 9200
+  roles:
+    - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
+    es_config: {
+        cluster.name: "custom-cluster",
+        discovery.zen.ping.unicast.hosts: "10.132.125.212,10.132.42.61,10.132.125.164,10.132.124.27,10.132.122.195,10.132.122.55,10.132.121.223,10.132.117.187",
+        network.host: "0.0.0.0",
+        http.port: 9200,
+        transport.tcp.port: 9301,
+        node.data: true,
+        node.master: false,
+        bootstrap.memory_lock: true,
+        } 
+    }
