@@ -8,3 +8,12 @@ cd ingest-comparison/src/clients/$1
 docker-compose build --no-cache
 docker-compose up
 EOF
+
+# BASE_PATH="file:/sx-stackoverflow/step2" && \
+# curl -XPOST \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#   "graphs": "'"${BASE_PATH}/head.json"'",
+#   "edges": "'"${BASE_PATH}/edges.json/all-edges.json"'",
+#   "vertices": "'"${BASE_PATH}/nodes.json/all-nodes.json"'"
+# }' http://localhost:8080/api/v1.0/indexes/stackoverflowstep2
