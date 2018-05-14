@@ -1,3 +1,3 @@
 ```bash
-$ docker-compose up --build
+$ ./stack-server.sh `masterdroplets` `slavedroplets`
 ```
