@@ -33,3 +33,4 @@ sed -e 's/"graphs":\["Lr41MAakQRqPwVuj3j4jCg"\]/"label":"to","graphs":\["Lr41MAa
 
 cat ~/sx-stackoverflow/step2/nodes.json/*/*.json > ~/sx-stackoverflow/step2/nodes.json/all-nodes.json
 cat ~/sx-stackoverflow/step2/edges.json/*/*.json > ~/sx-stackoverflow/step2/edges.json/all-edges.json
+echo '{"data":{},"id":"Lr41MAakQRqPwVuj3j4jCg","meta":{"label":"sx-stackoverflow"}}' > ~/sx-stackoverflow/step2/head.json
