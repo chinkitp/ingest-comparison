@@ -16,7 +16,7 @@
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
     es_config: {
         cluster.name: "custom-cluster",
-        discovery.zen.ping.unicast.hosts: "10.132.125.212,10.132.42.61,10.132.125.164,10.132.124.27,10.132.122.195,10.132.122.55,10.132.121.223,10.132.117.187",
+        discovery.zen.ping.unicast.hosts: "10.132.117.187,10.132.121.223,10.132.122.55,10.132.122.195,10.132.124.27,10.132.125.164,10.132.42.61,10.132.125.212",
         network.host: "0.0.0.0",
         http.port: 9200,
         transport.tcp.port: 9301,
@@ -45,7 +45,7 @@
     - { role: elasticsearch, es_instance_name: "node1", es_data_dirs: "/opt/elasticsearch/data", es_log_dir: "/opt/elasticsearch/logs", 
     es_config: {
         cluster.name: "custom-cluster",
-        discovery.zen.ping.unicast.hosts: "10.132.125.212,10.132.42.61,10.132.125.164,10.132.124.27,10.132.122.195,10.132.122.55,10.132.121.223,10.132.117.187",
+        discovery.zen.ping.unicast.hosts: "10.132.117.187,10.132.121.223,10.132.122.55,10.132.122.195,10.132.124.27,10.132.125.164,10.132.42.61,10.132.125.212",
         network.host: "0.0.0.0",
         http.port: 9200,
         transport.tcp.port: 9301,
