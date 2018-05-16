@@ -16,4 +16,4 @@ EOF
 #   "graphs": "'"${BASE_PATH}/head.json"'",
 #   "edges": "'"${BASE_PATH}/edges.json/all-edges.json"'",
 #   "vertices": "'"${BASE_PATH}/nodes.json/all-nodes.json"'"
-# }' http://localhost:8080/api/v1.0/indexes/stackoverflowstep2
+# }' http://localhost:8080/api/v1.0/indexes/stackoverflowstep27
