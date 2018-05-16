@@ -2,11 +2,7 @@
   vars: 
     do_token: digital_ocean_token
     masterdroplet: 
-    slavedroplet: 
-    es_major_version: "2.x"
-    es_version: "2.2.1"
-    es_heap_size: "2g"
-    es_cluster_name: "production"
+    slavedroplet:
 
   tasks:
 
