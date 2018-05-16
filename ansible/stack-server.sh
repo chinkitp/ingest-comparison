@@ -11,8 +11,7 @@ do
     sed -i "/slavedroplet:/ a\    - slavedroplet$c" ./digitalocean.yml
 done
 
-sed -i "/do_token:/ a\    - $3" ./digitalocean.yml
-
+sed -i -e "s/digital_ocean_token/$3/g" ./digitalocean.yml
 ansible-playbook digitalocean.yml
 
 python generate_hosts.py $3

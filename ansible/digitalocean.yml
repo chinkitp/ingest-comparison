@@ -1,6 +1,6 @@
 - hosts: digitalocean
   vars: 
-    do_token:
+    do_token: digital_ocean_token
     masterdroplet: 
     slavedroplet: 
     es_major_version: "2.x"
