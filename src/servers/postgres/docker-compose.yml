@@ -9,6 +9,8 @@ db: Postgres
   2. Create table Edges 
       (
           Id string, Primary key
+          Src string, 
+          Dst string,
           data JSONB .. 
       )
 loader: nodejs 
