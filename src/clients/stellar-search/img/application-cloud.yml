@@ -19,4 +19,4 @@ management:
 
 elasticsearch.rest-client:
   addresses:
-    - 10.132.137.206:9200/
+    - 10.132.124.245:9200
