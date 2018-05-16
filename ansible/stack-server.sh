@@ -11,9 +11,11 @@ do
     sed -i "/slavedroplet:/ a\    - slavedroplet$c" ./digitalocean.yml
 done
 
-ansible-playbook digitalocean.yml --ask-vault-pass
+sed -i "/do_token:/ a\    - $3" ./digitalocean.yml
 
-python generate_hosts.py
+ansible-playbook digitalocean.yml
+
+python generate_hosts.py $3
 
 
 ansible-playbook elastic-digitalocean.yml -i digitaloceanhosts

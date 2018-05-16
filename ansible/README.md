@@ -1,3 +1,3 @@
 ```bash
-$ ./stack-server.sh `masterdroplets` `slavedroplets`
+$ ./stack-server.sh `masterdroplets` `slavedroplets` `auth token`
 ```

@@ -6,7 +6,7 @@ import sys
 fname = 'elastic-digitalocean.yml'
 
 
-r=requests.get("https://api.digitalocean.com/v2/droplets", headers={"Authorization":"Bearer b752ff24abd52999fba93e0ddc8c8a5f7e39eec58967c3dad82a6b800a2074ae"})
+r=requests.get("https://api.digitalocean.com/v2/droplets", headers={"Authorization":"Bearer " + sys.argv[1]})
 
 hosts = r.json()
 
@@ -36,7 +36,7 @@ for ip in masters:
 
 
 with open('digitaloceanhosts', 'a') as the_file:
-    the_file.write('[slaves]\n')
+    the_file.write('[slave]\n')
 for ip in slaves:
     with open('digitaloceanhosts', 'a') as the_file:
         the_file.write(ip + '\n')
