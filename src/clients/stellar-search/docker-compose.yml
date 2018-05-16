@@ -8,7 +8,7 @@ services:
       context: ./img
     image: ingest-comparison/client-stellar-search:latest
     volumes:
-      - ~/sx-stackoverflow/:/sx-stackoverflow:ro
+      - /sx-stackoverflow/:/sx-stackoverflow:ro
     networks:
       - net
     ports:
