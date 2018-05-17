@@ -1,7 +1,12 @@
 version: '3.4'
 services:
-  digitalocean:
+  # digitalocean:
+  #   build: 
+  #     context: ./ansible
+  #   image: ansible_digitalocean:latest
+  #   tty: true
+  postgres:
     build: 
-      context: ./ansible
-    image: ansible_digitalocean:latest
+      context: ./sx-stackoverflow-sample
+    image: postgres_insert:latest
     tty: true
