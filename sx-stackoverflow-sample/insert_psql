@@ -1,0 +1,19 @@
+#!/bin/bash
+sudo -u postgres psql -c 'create database test;'
+
+
+sudo -u postgres psql -d test -c "CREATE TABLE $1(ID CHAR(50) PRIMARY KEY     NOT NULL,DATA           bytea    NOT NULL);"
+
+
+echo "id | data" > $1
+while read p; 
+do
+  id=$( echo $p | jq -r '.id' ) 
+  binary=$(echo $p |  perl -lpe '$_=unpack"B*"')
+  echo $id
+  echo "$id | $binary" >> $1
+done < "./sx-stackoverflow-sample/$1.json"
+
+
+
+sudo -u postgres psql  -d test -c "COPY $1 FROM '$1' delimiter '|' CSV HEADER;"
