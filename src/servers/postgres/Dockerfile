@@ -1,8 +1,11 @@
 FROM postgres:10.1
 
+WORKDIR /postgresfiles
 
 RUN apt-get -y update \
 && apt-get -y install jq
+
+
 
 COPY . /postgresfiles
 
