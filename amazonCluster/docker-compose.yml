@@ -1,0 +1,8 @@
+
+version: '3.4'
+services:
+  amazon:
+    build: 
+      context: ./amazon
+    image: amazon:latest
+    tty: true

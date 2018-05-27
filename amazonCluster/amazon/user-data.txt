@@ -1,0 +1,92 @@
+Content-Type: multipart/mixed; boundary="===============6027298880125468085=="
+MIME-Version: 1.0
+
+--===============6027298880125468085==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="locale.cfg"
+
+#cloud-config
+locale: en_AU.UTF-8
+timezone: UTC
+
+--===============6027298880125468085==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="bootcmd.cfg"
+
+#cloud-config
+
+bootcmd:
+  ## host-based firewall rules. We should consider using UFW (Uncomplicated
+  ## Firewall) in addition to network (AWS/openstack) firewall rules.
+  ## User error or outdated assumptions may occur and UFW provides another
+  ## line of defence. We only need to whitelist port 22 so we can have anisble
+  ## manage the remaining rules.
+
+  # - ufw default deny incoming
+  # - ufw default allow outgoing
+  ## whitelist ssh access from select IP ranges
+  # - ufw allow from 130.220.8.16/32 to any port 22
+  # - ufw logging low
+  # - ufw --force enable
+  # - ufw --force reload
+  # any other filewall rules should be managed with ansible
+
+  # Disable root login
+  - sed -i -e 's/^#\?PermitRootLogin\s.*/PermitRootLogin no/' /etc/ssh/sshd_config
+  # Set ssh log level to verbose
+  - sed -i -e 's/^#\?LogLevel\s.*/LogLevel VERBOSE/' /etc/ssh/sshd_config
+
+--===============6027298880125468085==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="packages.cfg"
+
+#cloud-config
+
+# Update apt database on first boot
+# (ie run apt-get update)
+#
+# Default: true
+package_update: true
+
+# Upgrade the instance on first boot
+# (ie run apt-get upgrade)
+#
+# Default: false
+# Aliases: apt_upgrade
+package_upgrade: true
+
+# Install additional packages on first boot
+#
+# Default: none
+#
+# if packages are specified, this apt_update will be set to true
+#
+# packages may be supplied as a single package name or as a list
+# with the format [<package>, <version>] wherein the specifc
+# package version will be installed.
+packages:
+  - unattended-upgrades
+  - update-notifier-common
+
+--===============6027298880125468085==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="ssh-authorized-keys.cfg"
+
+#cloud-config
+ssh_authorized_keys:
+  # chinkit.patel@d2dcrc.com.au
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCd+cUuGvYk8DbxluzCO2AEOs4DdxzCqR9ooKcGAGMGMP2de7PFR6ZP0GaZmnwkKSNA5BmM+0NKfTHalQH/ZGEB/SE6v7bR9vCWgEfGagtWbK0nl+H8hNBFJT+Jb9xKOzy6Ciaf8nyk8LIaj3HLdaLr3TBTFWiJ/Qjxz4IBJlRY07VAggwQwnBRBv5MS/t0PtgpzQOJf/DP7Anmxbi24pdicJlgnEbbG8jaAtiOTZVWzG0UDB3Kq7O+CW9glgW5l2V8xGWz/oHab9BbVNVPBhu5B5dLBPhPuvwgohre8kqrQMBYSNL42mN4AZNFeN/EaBSVXAiv241bk3yfCQKY6H/nhD5ZqCpR55wUoTskgKGinEq4LpnzA3D2kvYcAKPWXe3blOOjS89hjADLAB3+jC0b09n5COxmo2w1RMRbmXw/rVLXaHGI2zbv2kYHKuyOkgVx0nMbEO6s/z9FYhWOf8znZ+IunvUV9nFal/XbUaHkOyRLC9zppoxtmwmH9FYgDWsmAlN2SDHR4j8pAIlwWvfBdC/xMAjyTGt58HZ5uUJUljvr+NU/hjIcPeg+xZS9rSNYULyXD45UsLqeGV/yuGjbycNw6U9w2z/MlvsaGEGBo+TNIDR5DyBsth0bPh6SX/lIH7Tej88qY0cs5p1/TJQvEp0otPC2gJZ67GXkE60edw== chinkit@Chinkits-MBP.lan
+
+  # brian@aeonsoftware.com.au
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLP64yrg90KivCSaRrY24Ga2TK8P2ylcsEpmm3ImPzoH74pWI7Es0WGbgIj/r6FDb05dtBwRT1g5H3XtzOacTBd17KgQqZip9qcuAaam10Az1xC7U1768WTmiNRwrimtvc4Sxz+z7A+y6gDxDZg8Hk+vLhGozUkBgKAaxZAd8CoOe62pyvS4SvzkOgyKVEy4biDW+7TN14AxWzNj4/66p5+PbCK5qlLb7QwN3Zu1bR+wI5ahZ2i9aneJTRROGkna4MNYh3FS0py4MTOnF1xNDOqH57sey6ly2PoetempaLoPg1zYmH0waiZDB0yp9Vlpwvkdm5zupXmb8w3ULhPG7b brian@matindi
+
+
+--===============6027298880125468085==--
