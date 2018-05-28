@@ -13,6 +13,7 @@ maxMasterInstances= int(sys.argv[1:][0])
 instance_type = sys.argv[1:][1]
 all_hosts=[]
 
+
 with open('user-data.txt', 'r') as myfile:
     data = myfile.read()
     instances = ec2.create_instances(
@@ -34,7 +35,7 @@ with open('user-data.txt', 'r') as myfile:
 
 for idx,instance in enumerate(instances):
     all_hosts.append(instance.private_ip_address)
-    with open("hosts", "a") as myfile:
+    with open(instance_type, "a") as myfile:
         myfile.write(instance_type + ':'+instance.private_ip_address+'\n')
 
 

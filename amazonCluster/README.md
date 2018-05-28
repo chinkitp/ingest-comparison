@@ -23,5 +23,6 @@
 - docker-compose up --build
 - ./init.sh `number of instances` `name of the group you want to add to` `AWS_ACCESS_KEY_ID` `AWS_SECRET_ACCESS_KEY` 
     eg. `init.sh 1 test  AKIAJNLASJDALSDKNKLNADCXDA Ad4hTmdi62ALSMDLKASDKASDN3hbu`
+    ./init.sh 1 tester2
 
 - after running the init script, your ansible configuration file is created with the host's public ips.
