@@ -7,6 +7,5 @@ RUN apk update \
     && apk add --update bash && rm -rf /var/cache/apk/* 
 
 COPY . /
-ADD ./.ssh /root/.ssh
-RUN chmod 400 ~/.ssh/id_rsa \
-    && chmod +x ./init.sh
+RUN chmod +x ./init.sh \
+ && pip install boto3
