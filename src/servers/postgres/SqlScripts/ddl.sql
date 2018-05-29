@@ -6,12 +6,14 @@ CREATE DATABASE graph;
 
 CREATE TABLE allnodes
 (
-    ID CHAR(50)     NOT NULL,
-    DATA  json  NOT NULL
+    Id CHAR(50)     NOT NULL,
+    Data  json  NOT NULL
 );
 
 CREATE TABLE alledges
 (
-    ID CHAR(50)     NOT NULL,
-    DATA  json  NOT NULL
+    Id CHAR(50)     NOT NULL,
+    Source CHAR(50)     NOT NULL,
+    Target CHAR(50)     NOT NULL,
+    Data  json  NOT NULL
 );
