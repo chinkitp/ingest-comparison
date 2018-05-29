@@ -4,6 +4,8 @@ services:
     build: 
       context: ./
     image: postgres_insert:latest
+    command: postgres -c 'config_file=/etc/postgresql/postgresql.conf'
     volumes:
         - ../../../sx-stackoverflow-sample:/postgresfiles
+        - ./postgresql.conf:/etc/postgresql/postgresql.conf
     tty: true
