@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# export AWS_ACCESS_KEY_ID="$3"
-# export AWS_SECRET_ACCESS_KEY="$4"
+export AWS_ACCESS_KEY_ID="$3"
+export AWS_SECRET_ACCESS_KEY="$4"
 
 
 

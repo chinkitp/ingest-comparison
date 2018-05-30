@@ -52,7 +52,8 @@ def getrunning():
                 RunningInstances.append(instance.private_ip_address)
                 if instance.private_ip_address == item:
                     with open(filename, "a") as myfile:
-                        myfile.write(instance.public_ip_address+'\n')
+                        print("the instance ip address is " + instance.public_ip_address)
+                        myfile.write(instance.public_dns_name+'\n')
 
 
 getrunning()

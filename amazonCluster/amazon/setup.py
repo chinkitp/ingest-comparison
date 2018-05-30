@@ -20,8 +20,8 @@ with open('user-data.txt', 'r') as myfile:
         ImageId='ami-e0c19f83', 
         MinCount=1, 
         MaxCount=maxMasterInstances,
-        KeyName="anisble-ssh-key",
         UserData=data,
+        InstanceType='t2.micro',
         NetworkInterfaces=[
         {
             'DeviceIndex': 0,
