@@ -1,0 +1,29 @@
+{
+  "settings": {
+    "index.number_of_replicas": 0
+  },
+  "mappings": {
+    "docs": {
+      "dynamic": "strict",
+      "properties": {
+        "id": {
+          "type": "text"
+        },
+        "source": {
+          "type": "text"
+        },
+        "target": {
+          "type": "text"
+        },
+        "meta": {
+          "label":{
+            "type": "text"
+          },
+          "graphs":{
+            "type": "text","index_name" : "tag"
+          }
+        }
+      }
+    }
+  }
+}

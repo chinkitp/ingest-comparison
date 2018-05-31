@@ -1,0 +1,7 @@
+version: '3.4'
+services:
+  esrally:
+    build: 
+      context: ./tracks
+    image: esrally:latest
+    tty: true

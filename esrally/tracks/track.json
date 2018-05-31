@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "description": "Tutorial benchmark for Rally",
+  "indices": [
+    {
+      "name": "edges",
+      "body": "index.json",
+      "types": [ "docs" ]
+    }
+  ],
+  "corpora": [
+    {
+      "name": "rally-tutorial",
+      "documents": [
+        {
+          "source-file": "all-edges.json",
+          "document-count": 22320,
+          "uncompressed-bytes": 4462943
+        }
+      ]
+    }
+  ],
+  "challenges": [
+    {
+      "name": "index-and-query",
+      "default": true,
+      "schedule": [
+        {
+          "operation": {
+            "operation-type": "delete-index"
+          }
+        },
+        {
+          "operation": {
+            "operation-type": "create-index"
+          }
+        },
+        {
+          "operation": {
+            "operation-type": "cluster-health",
+            "request-params": {
+              "wait_for_status": "green"
+            }
+          }
+        },
+        {
+          "operation": {
+            "operation-type": "bulk",
+            "bulk-size": 5000
+          },
+          "warmup-time-period": 120,
+          "clients": 8
+        },
+        {
+          "operation": {
+            "operation-type": "force-merge"
+          }
+        },
+        {
+          "operation": {
+            "name": "query-match-all",
+            "operation-type": "search",
+            "body": {
+              "query": {
+                "match_all": {}
+              }
+            }
+          },
+          "clients": 8,
+          "warmup-iterations": 1000,
+          "iterations": 1000,
+          "target-throughput": 100
+        }
+      ]
+    }
+  ]
+}
