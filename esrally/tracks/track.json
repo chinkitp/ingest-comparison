@@ -1,9 +1,9 @@
 {
   "version": 2,
-  "description": "Tutorial benchmark for Rally",
+  "description": "EPGM Rally",
   "indices": [
     {
-      "name": "edges",
+      "name": "graph",
       "body": "index.json",
       "types": [ "docs" ]
     }
@@ -48,28 +48,8 @@
             "operation-type": "bulk",
             "bulk-size": 5000
           },
-          "warmup-time-period": 120,
+          "warmup-time-period": 5,
           "clients": 8
-        },
-        {
-          "operation": {
-            "operation-type": "force-merge"
-          }
-        },
-        {
-          "operation": {
-            "name": "query-match-all",
-            "operation-type": "search",
-            "body": {
-              "query": {
-                "match_all": {}
-              }
-            }
-          },
-          "clients": 8,
-          "warmup-iterations": 1000,
-          "iterations": 1000,
-          "target-throughput": 100
         }
       ]
     }

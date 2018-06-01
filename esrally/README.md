@@ -1,4 +1,5 @@
 ```bash
 $ docker-compose up --build
-$ esrally --distribution-version=6.2.0 --track-path=./ --preserve-install true
+$ esrally configure --advanced-config
+$ esrally --pipeline=benchmark-only --target-hosts=elasticsearch:9200 --track-path=./ --preserve-install=true
 ```
