@@ -13,7 +13,7 @@
       "name": "rally-tutorial",
       "documents": [
         {
-          "source-file": "all-edges.json",
+          "source-file": "sx-stackoverflow-sample/all-edges.json",
           "document-count": 22320,
           "uncompressed-bytes": 4462943
         }

@@ -16,9 +16,12 @@ RUN useradd  -ms /bin/bash es
 
 USER es
 
+
 WORKDIR /home/es
 
 
 
+
 COPY . /home/es
+RUN mkdir /home/es/sx-stackoverflow-sample
 

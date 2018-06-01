@@ -4,4 +4,6 @@ services:
     build: 
       context: ./tracks
     image: esrally:latest
+    volumes: 
+      - ../sx-stackoverflow-sample/:/home/es/sx-stackoverflow-sample
     tty: true
