@@ -3,8 +3,8 @@ set -e
 echo "Running DDL scripts..."
 psql -h localhost -U postgres -f ../SqlScripts/ddl.sql
 echo "Loading csv files into postgresql..."
-time jq -r '"\"\(.id)\"|\(.)"' /postgresfiles/all-nodes.json  | psql -U postgres -h localhost  -d graph -c "COPY allnodes (id,data) FROM stdin delimiter '|' "
-time jq -r '"\"\(.id)\"|\"\(.source)\"|\"\(.target)\"|\(.)"' /postgresfiles/all-edges.json  | psql -U postgres -h localhost  -d graph -c "COPY alledges (id,source,target,data) FROM stdin delimiter '|' "
+time psql -U postgres -h localhost  -d graph -c "COPY allnodes (id,data) FROM '/postgresfiles/all-nodes.json' delimiter '|' "
+time psql -U postgres -h localhost  -d graph -c "COPY alledges (id,source,target,data) FROM '/postgresfiles/all-edges.json' delimiter '|' "
 
 psql -U postgres -h localhost  -d graph -c  "CREATE INDEX ix_source ON alledges (source)"
 psql -U postgres -h localhost  -d graph -c  "CREATE INDEX ix_target ON alledges (target)"
