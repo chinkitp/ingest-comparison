@@ -4,26 +4,21 @@
   },
   "mappings": {
     "docs": {
-      "dynamic": "strict",
       "properties": {
-        "id": {
-          "type": "text"
-        },
-        "source": {
-          "type": "text"
-        },
-        "target": {
-          "type": "text"
-        },
-        "meta": {
-          "label":{
-            "type": "text"
-          },
-          "graphs":{
-            "type": "text","index_name" : "tag"
+        "id":{
+          "type": "keyword"
+        }
+      }, 
+      "dynamic_templates": [
+        {
+          "ignore_all_fields": {
+            "match_mapping_type": "*",
+            "mapping": {
+              "index": "false"
+            }
           }
         }
-      }
+      ]
     }
   }
 }

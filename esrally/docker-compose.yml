@@ -4,6 +4,34 @@ services:
     build: 
       context: ./tracks
     image: esrally:latest
+    ports:
+    - "9200"
     volumes: 
       - ../sx-stackoverflow-sample/:/home/es/sx-stackoverflow-sample
     tty: true
+  #   depends_on: 
+  #     - elasticsearch
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch-platinum:6.2.2
+  #   # volumes:
+  #     #- ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+  #     #- ./elasticsearch/data:/usr/share/elasticsearch/data
+  #   ports:
+  #     - "9200:9200"
+  #   # environment:
+  #   #   ES_JAVA_OPTS: "-Xmx1g -Xms1g"
+  #     # ELASTIC_USERNAME: ${ELASTIC_USERNAME}
+  #     # ELASTIC_PASSWORD: ${ELASTIC_PASSWORD}
+  #   # ulimits:
+  #   #   memlock:
+  #   #     soft: -1
+  #   #     hard: -1
+  #   healthcheck:
+  #     # yellow (under replicated - which can happen for single node) and green status is considered healthy
+  #     test:
+  #       - "CMD-SHELL"
+  #       - "curl -fs 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=60s&filter_path=status' | grep -qE '(green|yellow)' || exit 1"
+  #     interval: 1m
+  #     timeout: 60s
+  #     retries: 3
+  #     start_period: 30s
